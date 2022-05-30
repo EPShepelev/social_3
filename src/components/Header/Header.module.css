@@ -1,0 +1,22 @@
+.header {
+  padding: 20px 0;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+a:hover,
+a:active {
+color: #fba100;
+}

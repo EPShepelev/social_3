@@ -1,0 +1,9 @@
+.App {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+  background: radial-gradient(circle, rgba(107,186,167,1) 0%, rgba(108,100,139,1) 100%);
+  color: #fdfff5;
+  min-height: 100vh;
+}
