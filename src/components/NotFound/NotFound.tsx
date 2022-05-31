@@ -1,0 +1,1 @@
+export const NotFound: React.FC<{}> = () => <div>Page not found! Sorry...</div>

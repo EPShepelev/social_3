@@ -1,1 +1,1 @@
-export const Profile = () => <div>User profile!</div>
+export const Profile: React.FC<{}> = () => <div>User profile!</div>

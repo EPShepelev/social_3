@@ -1,1 +1,1 @@
-export const Logo = () => <div>Logo</div>
+export const Logo: React.FC<{}> = () => <div>Logo</div>

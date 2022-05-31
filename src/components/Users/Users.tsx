@@ -1,1 +1,1 @@
-export const Users = () => <div>List of users!</div>
+export const Users: React.FC<{}> = () => <div>List of users!</div>

@@ -1,1 +1,1 @@
-export const Login = () => <div>Log-in/out</div>
+export const Login: React.FC<{}> = () => <div>Log-in/out</div>
