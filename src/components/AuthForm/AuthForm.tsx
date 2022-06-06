@@ -4,30 +4,30 @@ import {
   Form,
   Field,
 } from 'formik';
-import { fetchAuthData } from '../../redux/actionCreators'
+import { login } from '../../redux/actionCreators'
+import { useAppDispatch } from '../../hooks/redux';
+import { userAuthValues } from '../../interfaces/IAuth'
 
-interface userAuthValues {
-  email: string;
-  password: string;
-}
+
 
 export const AuthForm: React.FC<{}> = () => {
-  const initialValues: userAuthValues = { email: '', password: '' };
+  const dispatch = useAppDispatch()
+  const initialValues: userAuthValues = { email: '', password: '', rememberMe: false };
   return (
     <div>
       <h1>Please, login...</h1>
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          console.log({ values, actions });
-          console.log(JSON.stringify(values, null, 2));
-          fetchAuthData(values.email, values.password)
+          dispatch(login(values.email, values.password, values.rememberMe))
           actions.setSubmitting(false);
         }}
       >
         <Form>
           <Field id="email" name="email" placeholder="e-mail" />
           <Field id="password" name="password" placeholder="password" />
+          <Field type="checkbox" name="rememberMe" />
+          Remember me
           <button type="submit">OK</button>
         </Form>
       </Formik>

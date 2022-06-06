@@ -1,12 +1,13 @@
-import { useLocation, Navigate } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom"
+import { useAppSelector } from "../../hooks/redux";
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
-  // let { user } = //from redux
-  let user = false
+  let { isAuth } = useAppSelector(store => store.auth)
+
   let location = useLocation();
 
-  if (!user) {
-    return <Navigate to="/" state={{ from: location }} replace />;
+  if (!isAuth) {
+    return <Navigate to="/auth" state={{ from: location }} replace />;
   } else {
     return children;
   }

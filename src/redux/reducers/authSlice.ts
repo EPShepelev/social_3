@@ -17,6 +17,7 @@ const authSlice = createSlice({
   reducers: {
     authUser(state, action) {
       state.isAuth = true
+      state.user.userId = action.payload
     },
     fetchUserSuccess(state, action) {
       state.error = ""
@@ -29,5 +30,5 @@ const authSlice = createSlice({
   }
 })
 
-export const { authUser } = authSlice.actions
+export const { authUser, fetchUserSuccess, fetchUserError } = authSlice.actions
 export default authSlice.reducer

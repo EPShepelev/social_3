@@ -1,23 +1,24 @@
 import axios from "axios";
+import { authUser } from "./reducers/authSlice";
 import { AppDispatch } from "./store";
 
 const axiosInstance = axios.create({
-  baseURL: 'https://social-network.samuraijs.com/',
+  baseURL: 'https://social-network.samuraijs.com/api/1.0',
 });
 
-export const fetchAuthData = (email: string, password: string) => async (dispatch: AppDispatch) => {
+export const login = (email: string, password: string, rememberMe: boolean) => async (dispatch: AppDispatch) => {
   try {
-    const response:any = await axiosInstance.post('/auth/login', {
+    const response: any = await axiosInstance.post('/auth/login', {
       email: email,
       password: password,
-      rememberMe: false //temp hardoced
+      rememberMe: rememberMe
     })
-    if (response.resultCode === 0) {
-      console.log("yeah!")
-    }
-    else {
-      console.log("oops...")
+    if (response.data.resultCode === 0) {
+      dispatch(authUser(response.data.data.userId))
     }
   }
-  catch (e) {}
+  catch (e) {
+    console.log(e)
+    console.log("oops...")
+  }
 }

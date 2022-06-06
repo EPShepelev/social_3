@@ -10,3 +10,9 @@ export interface IUser {
   email: string | null
   login: string | null
 }
+
+export interface userAuthValues {
+  email: string
+  password: string
+  rememberMe: boolean
+}

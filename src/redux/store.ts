@@ -1,12 +1,12 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import authSlice from './reducers/authSlice'
 import profileSlice from './reducers/profileSlice'
 import usersSlice from './reducers/usersSlice'
 
 export const store = configureStore({
   reducer: {
-    posts: authSlice,
-    comments: profileSlice,
+    auth: authSlice,
+    profile: profileSlice,
     users: usersSlice
   }
 })
