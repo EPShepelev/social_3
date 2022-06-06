@@ -4,6 +4,7 @@ import {
   Form,
   Field,
 } from 'formik';
+import { fetchAuthData } from '../../redux/actionCreators'
 
 interface userAuthValues {
   email: string;
@@ -20,6 +21,7 @@ export const AuthForm: React.FC<{}> = () => {
         onSubmit={(values, actions) => {
           console.log({ values, actions });
           console.log(JSON.stringify(values, null, 2));
+          fetchAuthData(values.email, values.password)
           actions.setSubmitting(false);
         }}
       >

@@ -1,6 +1,12 @@
+
 export interface IAuth {
+  isAuth: boolean
+  error: string
+  user: IUser
+}
+
+export interface IUser {
   userId: number | null
   email: string | null
   login: string | null
-  isAuth: boolean
 }
