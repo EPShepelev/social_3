@@ -1,5 +1,5 @@
 import axios from "axios";
-import { authUser } from "./reducers/authSlice";
+import { authUser,fetchUserSuccess } from "./reducers/authSlice";
 import { AppDispatch } from "./store";
 
 const axiosInstance = axios.create({
